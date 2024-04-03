@@ -1,6 +1,8 @@
 import { FormData } from "@/components/Contact";
+import Alert from "@/components/Alert";
+import { toast } from "react-toastify";
 
-export function sendEmail(data: FormData) {
+export function sendEmail(data: FormData, setData: any) {
   const apiEndpoint = "/api/email";
 
   fetch(apiEndpoint, {
@@ -9,9 +11,28 @@ export function sendEmail(data: FormData) {
   })
     .then((res) => res.json())
     .then((response) => {
-      alert(response.message);
+      setData({ name: "", email: "", message: "" });
+      toast(response.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        type: "success",
+      });
     })
     .catch((err) => {
-      alert(err);
+      toast(err.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        type: "error",
+      });
     });
 }

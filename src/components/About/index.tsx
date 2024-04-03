@@ -39,6 +39,16 @@ export function About() {
           Nicolas Sanjaya
         </h1>
         <TypewriterEffectSmooth words={words} />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0.0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.3,
+          duration: 0.8,
+          ease: "easeInOut",
+        }}
+      >
         <h2 className="font-extralight text-xl md:text-2xl dark:text-neutral-200 py-4 text-center text-wrap">
           6th semester student majoring in informatics is likely someone who has
           developed a strong foundation in both theoretical principles and
@@ -49,6 +59,7 @@ export function About() {
             href={"https://github.com/NicolasSanjaya"}
             target="_blank"
             className="hover:scale-110 transition-all duration-500"
+            aria-label="Github"
           >
             <FaGithub size={70} />
           </Link>
@@ -56,6 +67,7 @@ export function About() {
             href={"https://linkedin.com/in/nicolassanjaya"}
             target="_blank"
             className="hover:scale-110 transition-all duration-500"
+            aria-label="Linkedin"
           >
             <FaLinkedin size={70} />
           </Link>

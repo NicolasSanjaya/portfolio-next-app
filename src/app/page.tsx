@@ -11,6 +11,8 @@ import BlurCircle from "@/components/BlurCircle";
 import { FaArrowUp } from "react-icons/fa";
 import { Projects } from "@/components/Projects";
 import Contact from "@/components/Contact";
+import { ToastContainer } from "react-toastify";
+import Alert from "@/components/Alert";
 
 export default function Home() {
   const [active, setActive] = useState<string | null>(null);
@@ -38,7 +40,8 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="p-2 md:p-0">
+    <main>
+      <Alert />
       <nav>
         <motion.div
           initial={{ opacity: 0.0, y: -100 }}
@@ -92,19 +95,17 @@ export default function Home() {
         <About />
       </section>
       <TracingBeam>
-        <div className="h-40" id="skills"></div>
-        <section>
-          <BlurCircle className="absolute -z-[999] -translate-y-32 bg-blue-100" />
+        <section className="mb-20" id="skills">
+          <BlurCircle className="absolute -z-[999] top-4 left-4 bg-blue-100" />
           <BlurCircle className="absolute -z-[999] bottom-0 right-2 bg-blue-100" />
-          <h1 className="font-bold text-2xl text-center">Skills</h1>
+          <h1 className="font-bold text-2xl mt-4 mb-10 text-center">Skills</h1>
           <Skills />
         </section>
-        <section className="my-20" id="projects">
+        <section id="projects">
           <Projects />
         </section>
-        <div className="h-20" id="contact"></div>
-        <section className="my-20">
-          <h1 className="text-center font-bold text-2xl">Contact</h1>
+        <section className="mb-20" id="contact">
+          <h1 className="text-center font-bold text-2xl mt-4 mb-10">Contact</h1>
           <Contact />
         </section>
         <button
@@ -112,6 +113,8 @@ export default function Home() {
             isScrolled ? "opacity-100 scale-100" : "opacity-0 scale-0"
           }`}
           onClick={handleClick}
+          aria-label="Scroll to top"
+          title="Scroll to top"
         >
           <FaArrowUp />
         </button>
