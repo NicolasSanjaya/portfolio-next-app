@@ -21,9 +21,11 @@ const Contact: FC = () => {
     email: "",
     message: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   function onSubmit(data: FormData) {
-    sendEmail(data, setData);
+    setIsLoading(true);
+    sendEmail(data, setData, setIsLoading);
   }
 
   return (
@@ -102,7 +104,7 @@ const Contact: FC = () => {
       </div>
       <div>
         <button className="hover:shadow-form rounded-md bg-green-700 py-3 px-8 text-base font-semibold text-white outline-none hover:bg-green-900 transition-all duration-500">
-          Submit
+          {isLoading ? <div className="custom-loader"></div> : "Submit"}
         </button>
       </div>
     </form>

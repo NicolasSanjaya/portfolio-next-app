@@ -35,7 +35,7 @@ export function About() {
         }}
         className="relative flex flex-col gap-4 items-center justify-center px-4 flex-wrap mt-16"
       >
-        <h1 className="text-4xl md:text-7xl font-bold dark:text-white text-center">
+        <h1 className="text-4xl md:text-6xl font-bold dark:text-white text-center">
           Nicolas Sanjaya
         </h1>
         <TypewriterEffectSmooth words={words} />
@@ -49,12 +49,15 @@ export function About() {
           ease: "easeInOut",
         }}
       >
-        <h2 className="font-extralight text-xl md:text-2xl dark:text-neutral-200 py-4 text-center text-wrap">
+        <h2 className="font-extralight text-lg md:text-xl dark:text-neutral-200 mt-4 text-center text-wrap">
           6th semester student majoring in informatics is likely someone who has
-          developed a strong foundation in both theoretical principles and
-          practical applications of information technology and computer science
+          developed a strong foundation in both
         </h2>
-        <div className="flex gap-8 justify-center mt-4 scale-75 md:scale-100">
+        <h2 className="font-extralight text-lg md:text-xl dark:text-neutral-200 text-center text-wrap">
+          theoretical principles and practical applications of information
+          technology and computer science
+        </h2>
+        <div className="flex gap-8 justify-center mt-12 scale-75 md:scale-100">
           <Link
             href={"https://github.com/NicolasSanjaya"}
             target="_blank"

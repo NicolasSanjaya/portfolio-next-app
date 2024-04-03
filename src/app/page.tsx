@@ -11,8 +11,8 @@ import BlurCircle from "@/components/BlurCircle";
 import { FaArrowUp } from "react-icons/fa";
 import { Projects } from "@/components/Projects";
 import Contact from "@/components/Contact";
-import { ToastContainer } from "react-toastify";
 import Alert from "@/components/Alert";
+import { MdOutlineCloudDownload } from "react-icons/md";
 
 export default function Home() {
   const [active, setActive] = useState<string | null>(null);
@@ -118,6 +118,14 @@ export default function Home() {
         >
           <FaArrowUp />
         </button>
+        <Link
+          download={"/CV.pdf"}
+          href={"/CV.pdf"}
+          target="_blank"
+          className="fixed bottom-2 left-2 md:top-2 md:left-auto md:bottom-auto md:right-2 rounded-full bg-blue-400 p-2 md:p-4 text-white text-sm md:text-md flex gap-2 justify-center items-center drop-shadow-md z-[99999]"
+        >
+          Download CV <MdOutlineCloudDownload size={30} />
+        </Link>
       </TracingBeam>
     </main>
   );

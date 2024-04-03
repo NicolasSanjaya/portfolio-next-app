@@ -2,7 +2,7 @@ import { FormData } from "@/components/Contact";
 import Alert from "@/components/Alert";
 import { toast } from "react-toastify";
 
-export function sendEmail(data: FormData, setData: any) {
+export function sendEmail(data: FormData, setData: any, setIsLoading: any) {
   const apiEndpoint = "/api/email";
 
   fetch(apiEndpoint, {
@@ -12,6 +12,7 @@ export function sendEmail(data: FormData, setData: any) {
     .then((res) => res.json())
     .then((response) => {
       setData({ name: "", email: "", message: "" });
+      setIsLoading(false);
       toast(response.message, {
         position: "top-right",
         autoClose: 5000,
