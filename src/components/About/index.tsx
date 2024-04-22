@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import React from "react";
 import { AuroraBackground } from "../ui/aurora-background";
@@ -33,13 +31,18 @@ export function About() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="relative flex flex-col gap-4 items-center justify-center px-4 flex-wrap mt-16"
+        className="relative flex flex-col gap-4 items-center justify-center px-4 flex-wrap mt-16 md:mt-20"
       >
         <h1 className="text-4xl md:text-6xl font-bold dark:text-white text-center">
           Nicolas Sanjaya
         </h1>
         <TypewriterEffectSmooth words={words} />
       </motion.div>
+      <h2 className="font-extralight text-sm md:text-xl dark:text-neutral-200 mt-4 text-center text-wrap">
+        6th semester student majoring in informatics is likely someone who has
+        developed a strong foundation in both theoretical principles and
+        practical applications of information technology and computer science
+      </h2>
       <motion.div
         initial={{ opacity: 0.0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -49,14 +52,6 @@ export function About() {
           ease: "easeInOut",
         }}
       >
-        <h2 className="font-extralight text-lg md:text-xl dark:text-neutral-200 mt-4 text-center text-wrap">
-          6th semester student majoring in informatics is likely someone who has
-          developed a strong foundation in both
-        </h2>
-        <h2 className="font-extralight text-lg md:text-xl dark:text-neutral-200 text-center text-wrap">
-          theoretical principles and practical applications of information
-          technology and computer science
-        </h2>
         <div className="flex gap-8 justify-center mt-12 scale-75 md:scale-100">
           <Link
             href={"https://github.com/NicolasSanjaya"}

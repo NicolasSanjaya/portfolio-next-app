@@ -13,6 +13,7 @@ import { Projects } from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Alert from "@/components/Alert";
 import { MdOutlineCloudDownload } from "react-icons/md";
+import Head from "next/head";
 
 export default function Home() {
   const [active, setActive] = useState<string | null>(null);
@@ -41,6 +42,9 @@ export default function Home() {
 
   return (
     <main>
+      <head>
+        <link rel="icon" href="/logo.ico" sizes="any" />
+      </head>
       <Alert />
       <nav>
         <motion.div
