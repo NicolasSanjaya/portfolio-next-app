@@ -25,7 +25,7 @@ export function About() {
     <AuroraBackground>
       <motion.div
         initial={{ opacity: 0.0, y: -40 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{
           delay: 0.3,
           duration: 0.8,
@@ -38,38 +38,37 @@ export function About() {
         </h1>
         <TypewriterEffectSmooth words={words} />
       </motion.div>
-      <h2 className="font-extralight text-sm md:text-xl dark:text-neutral-200 mt-4 text-center text-wrap">
+      <h2 className="text-md md:text-xl dark:text-neutral-200 mt-4 text-center text-wrap">
         6th semester student majoring in informatics is likely someone who has
         developed a strong foundation in both theoretical principles and
         practical applications of information technology and computer science
       </h2>
       <motion.div
         initial={{ opacity: 0.0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{
           delay: 0.3,
           duration: 0.8,
           ease: "easeInOut",
         }}
+        className="flex gap-8 justify-center mt-12 scale-75 md:scale-100"
       >
-        <div className="flex gap-8 justify-center mt-12 scale-75 md:scale-100">
-          <Link
-            href={"https://github.com/NicolasSanjaya"}
-            target="_blank"
-            className="hover:scale-110 transition-all duration-500"
-            aria-label="Github"
-          >
-            <FaGithub size={70} />
-          </Link>
-          <Link
-            href={"https://linkedin.com/in/nicolassanjaya"}
-            target="_blank"
-            className="hover:scale-110 transition-all duration-500"
-            aria-label="Linkedin"
-          >
-            <FaLinkedin size={70} />
-          </Link>
-        </div>
+        <Link
+          href={"https://github.com/NicolasSanjaya"}
+          target="_blank"
+          className="hover:scale-110 transition-all duration-500"
+          aria-label="Github"
+        >
+          <FaGithub size={70} />
+        </Link>
+        <Link
+          href={"https://linkedin.com/in/nicolassanjaya"}
+          target="_blank"
+          className="hover:scale-110 transition-all duration-500"
+          aria-label="Linkedin"
+        >
+          <FaLinkedin size={70} />
+        </Link>
       </motion.div>
     </AuroraBackground>
   );
