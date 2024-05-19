@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 import { Menu, MenuItem } from "@/components/ui/navbar-menu";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import BlurCircle from "@/components/BlurCircle";
 import { FaArrowUp } from "react-icons/fa";
@@ -13,7 +12,8 @@ import { Projects } from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Alert from "@/components/Alert";
 import { MdOutlineCloudDownload } from "react-icons/md";
-import Head from "next/head";
+import AOSInit from "@/aos";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const [active, setActive] = useState<string | null>(null);
@@ -41,60 +41,53 @@ export default function Home() {
   }, []);
 
   return (
-    <main>
-      <head>
-        <link rel="icon" href="/logo.ico" sizes="any" />
-      </head>
+    <div>
+      <AOSInit />
       <Alert />
-      <nav>
-        <motion.div
-          initial={{ opacity: 0.0, y: -100 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 0.3,
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-          className={cn(
-            `fixed top-10 inset-x-0 max-w-2xl mx-auto z-50 transition-all duration-700 ease-in-out ${
-              isScrolled && "drop-shadow-lg"
-            }`
-          )}
-        >
-          <Menu setActive={setActive}>
-            <button onClick={handleClick}>
-              <Link href={"#about"}>
-                <MenuItem
-                  setActive={setActive}
-                  active={null}
-                  item="About"
-                ></MenuItem>
-              </Link>
-            </button>
-            <Link href={"#skills"}>
-              <MenuItem
-                setActive={setActive}
-                active={null}
-                item="Skills"
-              ></MenuItem>
-            </Link>
-            <Link href={"#projects"}>
-              <MenuItem
-                setActive={setActive}
-                active={null}
-                item="Projects"
-              ></MenuItem>
-            </Link>
-            <Link href={"#contact"}>
-              <MenuItem
-                setActive={setActive}
-                active={null}
-                item="Contact"
-              ></MenuItem>
-            </Link>
-          </Menu>
-        </motion.div>
-      </nav>
+      <motion.nav
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.5,
+          ease: "easeInOut",
+        }}
+        className={cn(
+          `fixed top-10 inset-x-0 max-w-2xl mx-auto z-50 transition-all duration-700 ease-in-out ${
+            isScrolled && "drop-shadow-lg"
+          }`
+        )}
+      >
+        <Menu setActive={setActive}>
+          <Link href={"#about"} onClick={handleClick}>
+            <MenuItem
+              setActive={setActive}
+              active={null}
+              item="About"
+            ></MenuItem>
+          </Link>
+          <Link href={"#skills"}>
+            <MenuItem
+              setActive={setActive}
+              active={null}
+              item="Skills"
+            ></MenuItem>
+          </Link>
+          <Link href={"#projects"}>
+            <MenuItem
+              setActive={setActive}
+              active={null}
+              item="Projects"
+            ></MenuItem>
+          </Link>
+          <Link href={"#contact"}>
+            <MenuItem
+              setActive={setActive}
+              active={null}
+              item="Contact"
+            ></MenuItem>
+          </Link>
+        </Menu>
+      </motion.nav>
       <section id="#about">
         <About />
       </section>
@@ -123,14 +116,14 @@ export default function Home() {
           <FaArrowUp />
         </button>
         <Link
-          download={"/CV.pdf"}
-          href={"/CV.pdf"}
+          download={"./CV.pdf"}
+          href={"./CV.pdf"}
           target="_blank"
           className="fixed bottom-2 left-2 md:top-2 md:left-auto md:bottom-auto md:right-2 rounded-full bg-blue-400 p-2 md:p-4 text-white text-sm md:text-md flex gap-2 justify-center items-center drop-shadow-md z-[99999]"
         >
           Download CV <MdOutlineCloudDownload size={30} />
         </Link>
       </TracingBeam>
-    </main>
+    </div>
   );
 }

@@ -23,35 +23,26 @@ export function About() {
   ];
   return (
     <AuroraBackground>
-      <motion.div
-        initial={{ opacity: 0.0, y: -40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.3,
-          duration: 0.8,
-          ease: "easeInOut",
-        }}
+      <div
         className="relative flex flex-col gap-4 items-center justify-center px-4 flex-wrap mt-16 md:mt-20"
+        data-aos="zoom-out"
       >
         <h1 className="text-4xl md:text-6xl font-bold dark:text-white text-center">
           Nicolas Sanjaya
         </h1>
         <TypewriterEffectSmooth words={words} />
-      </motion.div>
-      <h2 className="text-md md:text-xl dark:text-neutral-200 mt-4 text-center text-wrap">
+      </div>
+      <h2
+        data-aos="fade-up"
+        className="text-md md:text-xl dark:text-neutral-200 mt-4 text-center text-wrap px-4"
+      >
         6th semester student majoring in informatics is likely someone who has
         developed a strong foundation in both theoretical principles and
         practical applications of information technology and computer science
       </h2>
-      <motion.div
-        initial={{ opacity: 0.0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.3,
-          duration: 0.8,
-          ease: "easeInOut",
-        }}
+      <div
         className="flex gap-8 justify-center mt-12 scale-75 md:scale-100"
+        data-aos="zoom-in"
       >
         <Link
           href={"https://github.com/NicolasSanjaya"}
@@ -69,7 +60,7 @@ export function About() {
         >
           <FaLinkedin size={70} />
         </Link>
-      </motion.div>
+      </div>
     </AuroraBackground>
   );
 }
