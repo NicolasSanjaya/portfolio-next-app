@@ -32,14 +32,14 @@ export function About() {
         </h1>
         <TypewriterEffectSmooth words={words} />
       </div>
-      <h2
+      <p
         data-aos="fade-up"
         className="text-md md:text-xl dark:text-neutral-200 mt-4 text-center text-wrap px-4"
       >
         6th semester student majoring in informatics is likely someone who has
         developed a strong foundation in both theoretical principles and
         practical applications of information technology and computer science
-      </h2>
+      </p>
       <div
         className="flex gap-8 justify-center mt-12 scale-75 md:scale-100"
         data-aos="zoom-in"
