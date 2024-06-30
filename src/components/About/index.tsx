@@ -27,9 +27,9 @@ export function About() {
         className="relative flex flex-col gap-4 items-center justify-center px-4 flex-wrap mt-16 md:mt-20"
         data-aos="zoom-out"
       >
-        <h1 className="text-4xl md:text-6xl font-bold dark:text-white text-center">
+        <p className="text-4xl md:text-6xl font-bold dark:text-white text-center">
           Nicolas Sanjaya
-        </h1>
+        </p>
         <TypewriterEffectSmooth words={words} />
       </div>
       <p
