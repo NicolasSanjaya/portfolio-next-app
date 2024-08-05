@@ -24,6 +24,7 @@ const Skills = () => {
         <ThreeDCardDemo images={"/icons/expressjs.svg"} item="Express JS" />
         <ThreeDCardDemo images={"/icons/prisma.svg"} item="Prisma" />
         <ThreeDCardDemo images={"/icons/mysql.svg"} item="MySQL" />
+        <ThreeDCardDemo images={"/icons/postgresql.svg"} item="PostgreSQL" />
         <ThreeDCardDemo images={"/icons/git.svg"} item="Git" />
       </div>
     </>

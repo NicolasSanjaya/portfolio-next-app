@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import React from "react";
 import { AuroraBackground } from "../ui/aurora-background";
 import { TypewriterEffectSmooth } from "../ui/typewritter-effect";
@@ -32,14 +31,14 @@ export function About() {
         </p>
         <TypewriterEffectSmooth words={words} />
       </div>
-      <p
+      {/* <p
         data-aos="fade-up"
         className="text-md md:text-xl dark:text-neutral-200 mt-4 text-center text-wrap px-4"
       >
         6th semester student majoring in informatics is likely someone who has
         developed a strong foundation in both theoretical principles and
         practical applications of information technology and computer science
-      </p>
+      </p> */}
       <div
         className="flex gap-8 justify-center mt-12 scale-75 md:scale-100"
         data-aos="zoom-in"

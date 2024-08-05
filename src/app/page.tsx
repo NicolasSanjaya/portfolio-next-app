@@ -1,7 +1,7 @@
 "use client";
 import { About } from "@/components/About";
 import Skills from "@/components/Skills";
-import React, { useEffect, useState } from "react";
+import React, { MouseEventHandler, useEffect, useRef, useState } from "react";
 import { Menu, MenuItem } from "@/components/ui/navbar-menu";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
@@ -18,6 +18,9 @@ import { motion } from "framer-motion";
 export default function Home() {
   const [active, setActive] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const skillRef = useRef(null);
+  const projectRef = useRef(null);
+  const contactRef = useRef(null);
 
   const handleScroll = () => {
     // Show the button when the user scrolls down
@@ -30,6 +33,12 @@ export default function Home() {
 
   const handleClick = () => {
     window.scrollTo(0, 0);
+  };
+
+  const handleScrollTo = (ref: any) => {
+    if (ref && ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   useEffect(() => {
@@ -58,55 +67,57 @@ export default function Home() {
         )}
       >
         <Menu setActive={setActive}>
-          <Link href={"#about"} onClick={handleClick}>
+          <div onClick={handleClick}>
             <MenuItem
               setActive={setActive}
               active={null}
               item="About"
             ></MenuItem>
-          </Link>
-          <Link href={"#skills"}>
+          </div>
+          <div onClick={() => handleScrollTo(skillRef)}>
             <MenuItem
               setActive={setActive}
               active={null}
               item="Skills"
             ></MenuItem>
-          </Link>
-          <Link href={"#projects"}>
+          </div>
+          <div onClick={() => handleScrollTo(projectRef)}>
             <MenuItem
               setActive={setActive}
               active={null}
               item="Projects"
             ></MenuItem>
-          </Link>
-          <Link href={"#contact"}>
+          </div>
+          <div onClick={() => handleScrollTo(contactRef)}>
             <MenuItem
               setActive={setActive}
               active={null}
               item="Contact"
             ></MenuItem>
-          </Link>
+          </div>
         </Menu>
       </motion.nav>
-      <section id="#about">
+      <section>
         <About />
       </section>
       <TracingBeam>
-        <section className="mb-20" id="skills">
+        <section>
+          <div ref={skillRef} className="h-32"></div>
           <BlurCircle className="absolute -z-[999] top-4 left-4 bg-blue-100" />
           <BlurCircle className="absolute -z-[999] bottom-0 right-2 bg-blue-100" />
           <h1 className="font-bold text-2xl mt-4 mb-10 text-center">Skills</h1>
           <Skills />
         </section>
-        <section id="projects">
+        <section ref={projectRef}>
           <Projects />
         </section>
-        <section className="mb-20" id="contact">
+        <section>
+          <div ref={contactRef} className="h-32"></div>
           <h1 className="text-center font-bold text-2xl mt-4 mb-10">Contact</h1>
           <Contact />
         </section>
         <button
-          className={`fixed bg-slate-800 text-white right-4 bottom-4 p-4 rounded-full transition-all duration-500 ${
+          className={`fixed bg-slate-800 text-white right-4 bottom-4 p-4 rounded-full transition-all duration-500 hover:opacity-70 ${
             isScrolled ? "opacity-100 scale-100" : "opacity-0 scale-0"
           }`}
           onClick={handleClick}
